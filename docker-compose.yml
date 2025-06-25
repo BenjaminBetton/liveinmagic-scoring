@@ -11,7 +11,9 @@ services:
       - NODE_ENV=production
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: liveinmagic-frontend
     restart: always
     ports:
