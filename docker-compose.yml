@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: liveinmagic-backend
+    restart: always
+    ports:
+      - "4000:4000"
+    volumes:
+      - backend_data:/app
+    environment:
+      - NODE_ENV=production
+
+  frontend:
+    build: ./frontend
+    container_name: liveinmagic-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://backend:4000/api
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:
