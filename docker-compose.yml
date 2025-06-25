@@ -13,7 +13,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: ../Dockerfile
     container_name: liveinmagic-frontend
     restart: always
     ports:
